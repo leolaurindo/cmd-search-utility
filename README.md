@@ -24,6 +24,16 @@ Everything is done easily from the keyboard from the console, with a few numbers
 
 You just need to **make sure** the "suffix"" and its assigment logic does not conflict with the existing ones anyhow.
 
+## Motivation
+
+Windows search sucks. If you open explorer and narrow down in some folders, it can suck less than it would, but it's not optimal. In addition to that, handling files when inside the "search mode" is worse than 
+
+I used to have a software to help me with that when I was in my master's. After I formatted my PC in the past year, I lost it. I don't even remember its name. Searched a bit for it in the internet but did not found.
+
+I decided to make this small script to help me with repeated tasks and my laziness to interact with explorer's slow interface. I also wish to go back in time and have this when I was in my master's.
+
+It's a simple script, there are probably best solutions out there, but it not only fit my needs as well as served as a small bit of study and practice in batch scripting.
+
 ## Inner workings
 
 - The search algorithm in a simple linear search with wildcard matching.
