@@ -34,7 +34,6 @@ You just need to **make sure** the "suffix"" and its assigment logic does not co
    - Tip: Place this directory in the search path, so you can quickly find and modify the `search_paths.txt`.
 - The refined search will search inside the list created in the previous search.
 - You can look by file extensions prompting ".csv" or ".py", for example, in the initial or the refined search.
-- 
 
 ## Usage
 
