@@ -60,8 +60,8 @@ echo +'code' to open file with VsCode
 echo +'cdir' to open file's directory with VsCode
 echo +'vim' to open file with vim
 echo +'cd' to close this script and navigate to file's directory
-echo DOUBLE SPACE+ENTER to add keywords, 
-echo SPACE+ENTER to restart the search.
+echo DOUBLE SPACE+ENTER or 'ref' to add keywords, 
+echo SPACE+ENTER 'b' to restart the search.
 echo.
 echo ====================================
 echo.
