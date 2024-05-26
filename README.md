@@ -7,7 +7,7 @@ It also allows you to
 - Search for a file or folder in a set of directories (that can be the whole disk if needed);
 - Refine the initial search query results with new keywords;
 - Copy a select folder or file's path to clipboard;
-- Open a new console (cmd) in the selected folder or file' directory in a new window;
+- Open a new console (cmd) in the selected folder or file's directory in a new window;
 - Open a selected folder or file itself with the default software as set in the OS;
 - Open a select folder or file's location in Explorer;
 - Delete a selected file;
@@ -16,9 +16,9 @@ It also allows you to
 - Open a selected folder or file's directory in vscode;
 - Open a selected folder or file in vim.
 
-Everything is done easily from the keyboard from the console, with a few numbers and keywords.
+Everything is done easily from the keyboard in the console interface, with not much typing.
 
-**You can add new routines that might suit your personal needs**. Just follow the same pattern, creating the new routine like the existing ones, add it to the `:chooseFile` loop and assign a "suffix" to activate it.
+**You can add new routines that might suit your personal needs**. Just follow the same pattern: create a new routine like the existing ones, add it to the `:chooseFile` loop and assign a "suffix" to activate it.
 
 You just need to **make sure** the "suffix"" and its assigment logic does not conflict with the existing ones anyhow.
 
@@ -26,22 +26,22 @@ You just need to **make sure** the "suffix"" and its assigment logic does not co
 
 Windows search sucks. If you open explorer and narrow down in some folders, it can suck less than it would, but it's not optimal. In addition to that, handling files when inside the "search mode" is even worse.
 
-I used to have a software to help me with that when I was in my master's. I had to iterate and search for piles of `pdfs`, so I really needed a more robust thing. After I formatted my PC in the past year, I lost it. I don't even remember its name. Searched a bit for it in the internet but did not found.
+I used to have a software to help me with that when I was in my master's. I had to iterate and search for piles of `pdfs`, so I really needed a more robust thing. After I formatted my PC in the past year, I lost it. I don't even remember its name. Searched a bit for it in the internet but I could not found the forgotten unnamed app.
 
 This script is my solution for repetitive searches and my own impatience with Explorer. I even wish I could send it back in time to my struggling master's student self.
 
-To my today's self, it's more of a facilitator to search for, modify and interact with a set of files in my pc (mostly python scripts, hence the usage of `vscode`). It's a simple script, there are probably best solutions out there, but it not only fit my needs as well as served as a small bit of study and practice in batch scripting.
+To my today's self, it's more of a facilitator to search for, modify and interact with a set of files in my pc (mostly python scripts, hence the usage of `vscode`). It's a simple script, there are probably best solutions out there, but it fits my need and served as a small bit of study and practice in batch scripting.
 
 ## Inner workings
 
 - The search algorithm in a simple linear search with wildcard matching.
 - It iterates over each directory and its subdirectories recursively, checking if any folder or files match the keywords.
-- The algorithm will iterate only over the paths declared in `search_paths.txt`. Just write any paths following the pattern already present there. Don't leave `\` at the end of the paths and separate them by a single line break.
-   - This method was chosen so that the user can limit the scope of the search, making it quicker and more efficient for repetitive usage.
+- The algorithm will iterate only over the paths declared in `search_paths.txt`. Just write any paths following the pattern already present there. **Don't** leave `\` at the end of the paths and separate them by a single line break.
+   - This method was chosen so that the user can limit the scope of the search, requiring less processing power and time over the iterations, making it more efficient for repetitive usage.
    - You can, however, add a whole disk simply writing `C:`.
-   - Tip: Place this directory in the search path, so you can quickly find and modify the `search_paths.txt`.
+   - Tip: Place this directory in the search path, so you can quickly find and modify the `search_paths.txt` to add or remove another one.
 - The refined search will search inside the list created in the previous search.
-- You can look by file extensions prompting ".csv" or ".py", for example, in the initial or the refined search.
+- You can look by file extensions by querying for ".csv" or ".py", for example, in the initial or the refined search.
 
 ## Usage
 
@@ -51,20 +51,27 @@ To my today's self, it's more of a facilitator to search for, modify and interac
 4. The search results will be displayed, showing the file paths associated with a number
 5. Choose one of the options that will be prompted
    - Enter the number of the file to open it with the OS's default software
+   - You can also add suffixes that will call commands and routines defined inside the script.
+   - So if you want to open the file indexed as `7` in `vim`, write the file number + vim, like:
+   ```
+   7vim.
+   ```
+   - The same for other options. Write them right before the number, with no spaces or enters.
 
-   You can also add suffixes that will call commands and routines defined inside the script.
-
-   So if you want to open the file in `vim`, write the file number + vim, like
-
-   `7vim`.
-
-   The same for other options. Write them right before the number, with no spaces or enters.
-
-   These options will be prompted on the console when running the script. You can also check them inside the script code.
+   - These options will be prompted on the console when running the script. You can also check them inside the script code.
 
 6. To go back and make another search, write `b` or `<space><enter>`
 
 7. To refine the search with new keywords, write `<space><space><enter>` or `ref` without any numbers
+
+8. Currently, the script handles the following actions
+   - `<number>vim` to open a file with vim;
+   - `<number>c` to copy the file path to clipboard;
+   - `<number>del` to delete a file;
+   - `<number>code` to open a file with VsCode
+   - `<number>cdir` to open a file directory in VsCode
+   - `<number>cd` to open a new console window in the selected file's directory location
+   - `<number>exp` to open in explorer
 
 ## Configuration
 
