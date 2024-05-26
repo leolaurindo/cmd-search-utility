@@ -26,13 +26,13 @@ You just need to **make sure** the "suffix"" and its assigment logic does not co
 
 ## Motivation
 
-Windows search sucks. If you open explorer and narrow down in some folders, it can suck less than it would, but it's not optimal. In addition to that, handling files when inside the "search mode" is worse than 
+Windows search sucks. If you open explorer and narrow down in some folders, it can suck less than it would, but it's not optimal. In addition to that, handling files when inside the "search mode" is even worse.
 
-I used to have a software to help me with that when I was in my master's. After I formatted my PC in the past year, I lost it. I don't even remember its name. Searched a bit for it in the internet but did not found.
+I used to have a software to help me with that when I was in my master's. I had to iterate and search for piles of `pdfs`, so I really needed a more robust thing. After I formatted my PC in the past year, I lost it. I don't even remember its name. Searched a bit for it in the internet but did not found.
 
-I decided to make this small script to help me with repeated tasks and my laziness to interact with explorer's slow interface. I also wish to go back in time and have this when I was in my master's.
+This script is my solution for repetitive searches and my own impatience with Explorer. I even wish I could send it back in time to my struggling master's student self.
 
-It's a simple script, there are probably best solutions out there, but it not only fit my needs as well as served as a small bit of study and practice in batch scripting.
+To my today's self, it's more of a facilitator to search for, modify and interact with a set of files in my pc (mostly python scripts, hence the usage of `vscode`). It's a simple script, there are probably best solutions out there, but it not only fit my needs as well as served as a small bit of study and practice in batch scripting.
 
 ## Inner workings
 
