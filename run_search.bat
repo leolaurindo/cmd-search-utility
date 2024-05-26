@@ -53,15 +53,15 @@ goto chooseFile
 echo ====================================
 echo.
 echo Enter the number of the file to open,
-echo +'exp' to go to file's folder, 
-echo +'c' to copy the file path to clipboard, 
-echo +'del' to delete a file,
-echo +'code' to open file with VsCode
-echo +'cdir' to open file's directory with VsCode
-echo +'vim' to open file with vim
-echo +'cd' to close this script and navigate to file's directory
+echo +'exp' to open selection's folder in Explorer;
+echo +'c' to copy the selection's path to clipboard;
+echo +'del' to delete a file;
+echo +'code' to open selection with VsCode;
+echo +'cdir' to open selection's directory with VsCode;
+echo +'vim' to open selection with vim;
+echo +'cd' to open new console window in selection's directory;
 echo DOUBLE SPACE+ENTER or 'ref' to add keywords, 
-echo SPACE+ENTER 'b' to restart the search.
+echo SPACE+ENTER or 'b' to restart the search.
 echo.
 echo ====================================
 echo.
