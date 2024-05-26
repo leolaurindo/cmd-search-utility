@@ -1,5 +1,3 @@
-REM README
-
 # Console-based search utility
 
 This is a command-line search tool that allows you to search for files containing a specific keyword in a given set of directories.
