@@ -246,17 +246,55 @@ if defined fileList[%fileIndex%] (
 exit /b
 
 :moveFile
-set fileIndex=%1
+set "fileIndex=%1"
 if defined fileList[%fileIndex%] (
     set "filePath=!fileList[%fileIndex%]!"
-    set /p newLocation="Enter the new location for the file: "
-    if not exist "!newLocation!\" (
-        echo Invalid location. Please try again.
-        goto moveFile
+
+    call :selectPredefinedLocation
+
+    :inputLocation
+    set /p "newLocation=Enter new path or select a number from the list ('b' or 'space+enter' to go back): "
+    echo.
+
+    if "%newLocation%"=="b" (
+        goto chooseFile 
+    ) else if "%newLocation%"==" " (
+        goto chooseFile 
+    ) else if exist "!newLocation!\" (
+        rem Valid directory path entered
+    ) else (
+        set "predefinedChoice="
+        for /L %%i in (1,1,!count!) do (
+            if "!newLocation!"=="%%i" set "predefinedChoice=!location[%%i]!"
+        )
+        if defined predefinedChoice (
+            set "newLocation=!predefinedChoice!"
+        ) else (
+            echo Invalid location or choice. Please try again.
+            goto inputLocation
+        )
     )
+
     move "!filePath!" "!newLocation!\"
     echo File moved successfully.
+
 ) else (
     echo Invalid number, please try again.
 )
+exit /b
+
+:selectPredefinedLocation
+set "count=0"
+
+rem *** Read predefined paths from file ***
+for /f "tokens=*" %%L in (move_paths.txt) do (
+    set /a count+=1
+    set "location[!count!]=%%L"  
+)
+
+echo Predefined locations:
+for /L %%i in (1,1,!count!) do (
+    echo %%i. !location[%%i]!
+)
+echo.
 exit /b

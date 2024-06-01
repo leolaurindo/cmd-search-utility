@@ -14,7 +14,8 @@ It also allows you to
    - Deletion for folders not implemented yet, but it will delete files inside the folder;
 - Open a selected folder or file in vscode;
 - Open a selected folder or file's directory in vscode;
-- Open a selected folder or file in vim.
+- Open a selected folder or file in vim;
+- Move the selected file or folder to new custom or predefined location;
 
 Everything is done easily from the keyboard in the console interface, with not much typing.
 
@@ -42,6 +43,9 @@ To my today's self, it's more of a facilitator to search for, modify and interac
    - Tip: Place this directory in the search path, so you can quickly find and modify the `search_paths.txt` to add or remove another one.
 - The refined search will search inside the list created in the previous search.
 - You can look by file extensions by querying for ".csv" or ".py", for example, in the initial or the refined search.
+- For the `move` command, the script will look into the list of predefined paths inside `move_paths.txt` and ask the user for an input. The user can input manually any path he or she would like or, alternatively, the user can just type one of the numbers associated with the predefined path wanted.
+   - **Don't** leave `\` at the end of the paths and separate them by a single line break.
+   - When manually typing a path, you can use the auto-complete feature by pressing the `tab` key.
 
 ## Usage
 
@@ -72,10 +76,13 @@ To my today's self, it's more of a facilitator to search for, modify and interac
    - `<number>cdir` to open a file directory in VsCode
    - `<number>cd` to open a new console window in the selected file's directory location
    - `<number>exp` to open in explorer
+   - `<number>move` to move the selection to a new custom location to be typed or to one of the predefined locations;
 
 ## Configuration
 
 The search paths are defined in the `search_paths.txt` file. Each path should be on a separate line, as in the example.
+
+The `move_paths.txt` file is used to store a predefined list of paths that can be used with the `move` command. This file allows you to define paths that are frequently used, making it easier to select them when executing the standard `move` command. You can also manually type any path directly in the command.
 
 ### Make your own "commands"" and routines
 
@@ -100,6 +107,6 @@ As "code" has only 4 letters, I need to make sure it checks the last 4 letters o
 You can also add new routines at the end of the script. Just follow the pattern of adding it as option in the `:chooseFile` and call it from there.
 
 ## To-dos
-1. Adjust the search algorithm for better performance.
-2. Allow users to specify file extensions to search for (it can already be done by refining the search).
-3. Facilitate the change of "suffixes" and the addition of new routines.
+
+1. Allow users to specify file extensions to search for (it can already be done by refining the search).
+2. Facilitate the change of "suffixes" and the addition of new routines.
