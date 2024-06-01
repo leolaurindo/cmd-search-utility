@@ -60,6 +60,7 @@ echo +'code' to open selection with VsCode;
 echo +'cdir' to open selection's directory with VsCode;
 echo +'vim' to open selection with vim;
 echo +'cd' to open new console window in selection's directory;
+echo +'move' to move the selection;
 echo DOUBLE SPACE+ENTER or 'ref' to add keywords, 
 echo SPACE+ENTER or 'b' to restart the search.
 echo.
@@ -98,6 +99,10 @@ if "!fileChoice:~-3!"=="exp" (
 ) else if "!fileChoice:~-2!"=="cd" (
     set /a fileIndex=!fileChoice:~0,-2!
     call :openNewWindowInDirectory !fileIndex!
+    goto chooseFile
+    ) else if "!fileChoice:~-4!"=="move" (
+    set /a fileIndex=!fileChoice:~0,-4!
+    call :moveFile !fileIndex!
     goto chooseFile
 ) else (
     set /a fileIndex=!fileChoice!
@@ -235,6 +240,22 @@ set fileIndex=%1
 if defined fileList[%fileIndex%] (
     set "filePath=!fileList[%fileIndex%]!"
     for %%P in ("!filePath!") do start cmd /k "cd /d "%%~dpP""
+) else (
+    echo Invalid number, please try again.
+)
+exit /b
+
+:moveFile
+set fileIndex=%1
+if defined fileList[%fileIndex%] (
+    set "filePath=!fileList[%fileIndex%]!"
+    set /p newLocation="Enter the new location for the file: "
+    if not exist "!newLocation!\" (
+        echo Invalid location. Please try again.
+        goto moveFile
+    )
+    move "!filePath!" "!newLocation!\"
+    echo File moved successfully.
 ) else (
     echo Invalid number, please try again.
 )
