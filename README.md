@@ -52,7 +52,7 @@ To my today's self, it's more of a facilitator to search for, modify and interac
 1. Run the `run_search.bat` file.
 2. Enter the search keyword when prompted.
 3. The tool will search for files containing the keyword in the specified directories.
-4. The search results will be displayed, showing the file paths associated with a number
+4. The search results will be displayed like a vertical list, showing the file paths associated with a number.
 5. Choose one of the options that will be prompted
    - Enter the number of the file to open it with the OS's default software
    - You can also add suffixes that will call commands and routines defined inside the script.
@@ -60,7 +60,7 @@ To my today's self, it's more of a facilitator to search for, modify and interac
    ```
    7vim.
    ```
-   - The same for other options. Write them right before the number, with no spaces or enters.
+   - The same for other options. Write them right after the number, with no spaces or enters. So, if instead of opening in vim you'd prefer to copy the selected path to clipboard, you' write the `7c` or, if you'd like to open a new console window in the selected file's directory, you'd type `7cd`. All the options are listed below.
 
    - These options will be prompted on the console when running the script. You can also check them inside the script code.
 
