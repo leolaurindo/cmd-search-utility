@@ -100,9 +100,13 @@ if "!fileChoice:~-3!"=="exp" (
     set /a fileIndex=!fileChoice:~0,-2!
     call :openNewWindowInDirectory !fileIndex!
     goto chooseFile
-    ) else if "!fileChoice:~-4!"=="move" (
+) else if "!fileChoice:~-4!"=="move" (
     set /a fileIndex=!fileChoice:~0,-4!
     call :moveFile !fileIndex!
+    goto chooseFile
+) else if "!fileChoice:~-3!"=="ren" (
+    set /a fileIndex=!fileChoice:~0,-3!
+    call :renameFile !fileIndex!
     goto chooseFile
 ) else (
     set /a fileIndex=!fileChoice!
@@ -297,4 +301,35 @@ for /L %%i in (1,1,!count!) do (
     echo %%i. !location[%%i]!
 )
 echo.
+exit /b
+
+:renameFile
+if defined fileList[%fileIndex%] (
+    set "filePath=!fileList[%fileIndex%]!"
+    if exist "!filePath!" (
+        echo Current file: !filePath!
+        for %%a in ("!filePath!") do (
+            set "extension=%%~xa"
+        )
+        set /p newFileName="Enter new file name without extension: "
+        if "!newFileName!"=="" (
+            echo Filename cannot be empty.
+            exit /b
+        )
+        set "newFilePath=!fileList[%fileIndex%]!"
+        for %%a in ("!newFilePath!") do (
+            set "newFilePath=%%~dpa!newFileName!!extension!"
+        )
+        ren "!filePath!" "!newFileName!!extension!"
+        if !errorlevel! equ 0 (
+            echo File renamed to !newFilePath!
+        ) else (
+            echo Failed to rename the file.
+        )
+    ) else (
+        echo File does not exist.
+    )
+) else (
+    echo Invalid number, please try again.
+)
 exit /b
