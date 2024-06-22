@@ -16,6 +16,7 @@ It also allows you to
 - Open a selected folder or file's directory in vscode;
 - Open a selected folder or file in vim;
 - Move the selected file or folder to new custom or predefined location;
+- Rename a selected file;
 
 Everything is done easily from the keyboard in the console interface, with not much typing.
 
@@ -72,11 +73,12 @@ To my today's self, it's more of a facilitator to search for, modify and interac
    - `<number>vim` to open a file with vim;
    - `<number>c` to copy the file path to clipboard;
    - `<number>del` to delete a file;
-   - `<number>code` to open a file with VsCode
-   - `<number>cdir` to open a file directory in VsCode
-   - `<number>cd` to open a new console window in the selected file's directory location
-   - `<number>exp` to open in explorer
+   - `<number>code` to open a file with VsCode;
+   - `<number>cdir` to open a file directory in VsCode;
+   - `<number>cd` to open a new console window in the selected file's directory location;
+   - `<number>exp` to open in explorer;
    - `<number>move` to move the selection to a new custom location to be typed or to one of the predefined locations;
+   - `<number>ren` to open a prompt to rename the selected file;
 
 ## Configuration
 
